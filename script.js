@@ -1,18 +1,18 @@
-/* =========================================================
-   AKZ-SMP — MAIN JAVASCRIPT
-   ========================================================= */
-
 "use strict";
 
-/* =========================================================
-   PLAYER DATA
-   ========================================================= */
+
+/* =====================================================
+   AKZ-SMP DATA
+===================================================== */
 
 const AKZ_DATA = {
 
     relvo: {
+
         name: "RELVO",
+
         title: "THE MACE MASTER",
+
         roles: [
             "Mace Expert",
             "PvP Expert",
@@ -23,137 +23,15 @@ const AKZ_DATA = {
             "An extremely dangerous and experienced Minecraft warrior. Relvo has mastered survival, PvP and the devastating power of the mace.",
 
         quote:
-            "When the battle begins, Relvo doesn't run.",
+            "When the battle begins, Relvo doesn't run."
 
-        armor: [
-            {
-                name: "Netherite Helmet",
-                enchantments: [
-                    "Protection",
-                    "Unbreaking",
-                    "Mending",
-                    "Respiration",
-                    "Aqua Affinity"
-                ],
-                trim: "Netherite Trim"
-            },
-
-            {
-                name: "Netherite Chestplate",
-                enchantments: [
-                    "Protection",
-                    "Unbreaking",
-                    "Mending",
-                    "Thorns"
-                ],
-                trim: "Netherite Trim"
-            },
-
-            {
-                name: "Netherite Leggings",
-                enchantments: [
-                    "Protection",
-                    "Unbreaking",
-                    "Mending",
-                    "Swift Sneak"
-                ],
-                trim: "Netherite Trim"
-            },
-
-            {
-                name: "Netherite Boots",
-                enchantments: [
-                    "Protection",
-                    "Unbreaking",
-                    "Mending",
-                    "Feather Falling",
-                    "Depth Strider",
-                    "Soul Speed"
-                ],
-                trim: "Netherite Trim"
-            }
-        ],
-
-        weapons: [
-            {
-                name: "Netherite Mace",
-                description: "Relvo's signature weapon.",
-                enchantments: [
-                    "Density",
-                    "Unbreaking",
-                    "Mending",
-                    "Wind Burst"
-                ]
-            },
-
-            {
-                name: "Netherite Sword",
-                description: "A devastating close-range weapon.",
-                enchantments: [
-                    "Sharpness IV",
-                    "Unbreaking",
-                    "Mending",
-                    "Sweeping Edge",
-                    "Looting",
-                    "Fire Aspect"
-                ]
-            },
-
-            {
-                name: "Netherite Axe",
-                description: "Heavy combat weapon.",
-                enchantments: [
-                    "Sharpness",
-                    "Efficiency",
-                    "Unbreaking",
-                    "Mending"
-                ]
-            }
-        ],
-
-        tools: [
-            {
-                name: "Netherite Pickaxe",
-                enchantments: [
-                    "Efficiency",
-                    "Fortune",
-                    "Unbreaking",
-                    "Mending"
-                ]
-            },
-
-            {
-                name: "Netherite Axe",
-                enchantments: [
-                    "Efficiency",
-                    "Sharpness",
-                    "Unbreaking",
-                    "Mending"
-                ]
-            },
-
-            {
-                name: "Netherite Shovel",
-                enchantments: [
-                    "Efficiency",
-                    "Unbreaking",
-                    "Mending"
-                ]
-            },
-
-            {
-                name: "Netherite Hoe",
-                enchantments: [
-                    "Efficiency",
-                    "Unbreaking",
-                    "Mending"
-                ]
-            }
-        ]
     },
 
+
     akzzz: {
+
         name: "AKZZZ",
+
         title: "THE LEGENDARY BUILDER",
 
         roles: [
@@ -166,589 +44,148 @@ const AKZ_DATA = {
             "A legendary builder capable of transforming an empty Minecraft world into monumental structures. His greatest creation is the AKZ Academy.",
 
         quote:
-            "Built by AKZZZ. Remembered by the world.",
+            "Built by AKZZZ. Remembered by the world."
 
-        creation: "THE AKZ ACADEMY"
     }
+
 };
 
 
-/* =========================================================
-   PAGE LOADER
-   ========================================================= */
-
-/*
-   IMPORTANT:
-   This loader is intentionally failsafe.
-
-   Even if another JavaScript feature has an error,
-   the loading screen will still disappear.
-*/
+/* =====================================================
+   LOADER
+===================================================== */
 
 function hideLoader() {
 
-    const loader = document.getElementById("loader");
+    const loader =
+        document.getElementById("loader");
 
     if (!loader) return;
 
     loader.classList.add("hide");
 
-    // Completely remove it after the animation
     setTimeout(() => {
+
         loader.style.display = "none";
-    }, 800);
+
+    }, 700);
+
 }
 
 
-/* Start loader timer immediately */
-setTimeout(hideLoader, 1500);
+/* Normal loader */
 
+window.addEventListener("load", () => {
 
-/* Also remove loader when DOM is ready */
-document.addEventListener("DOMContentLoaded", () => {
-
-    setTimeout(hideLoader, 1500);
+    setTimeout(hideLoader, 1200);
 
 });
 
 
-/* Absolute failsafe:
-   NEVER allow the loader to remain forever. */
+/* DOM failsafe */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    setTimeout(hideLoader, 1800);
+
+});
+
+
+/* Absolute failsafe */
+
 setTimeout(() => {
 
-    const loader = document.getElementById("loader");
+    const loader =
+        document.getElementById("loader");
 
     if (loader) {
+
         loader.remove();
+
     }
 
 }, 5000);
 
 
-/* =========================================================
-   DOM READY
-   ========================================================= */
+/* =====================================================
+   MAIN
+===================================================== */
 
-document.addEventListener("DOMContentLoaded", () => {
-
-    /* =====================================================
-       MOBILE MENU
-       ===================================================== */
-
-    const menuButton = document.querySelector(".menu-toggle");
-    const navigation = document.querySelector(".nav-links");
-
-    if (menuButton && navigation) {
-
-        menuButton.addEventListener("click", () => {
-
-            navigation.classList.toggle("active");
-            menuButton.classList.toggle("active");
-
-        });
-
-    }
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
 
-    /* =====================================================
-       CLOSE MOBILE MENU WHEN LINK IS CLICKED
-       ===================================================== */
+        /* =============================================
+           MOBILE MENU
+        ============================================= */
 
-    if (navigation) {
+        const menu =
+            document.querySelector(".menu-toggle");
 
-        const navLinks = navigation.querySelectorAll("a");
+        const nav =
+            document.querySelector(".nav-links");
 
-        navLinks.forEach(link => {
 
-            link.addEventListener("click", () => {
+        if (menu && nav) {
 
-                navigation.classList.remove("active");
+            menu.addEventListener(
+                "click",
+                () => {
 
-                if (menuButton) {
-                    menuButton.classList.remove("active");
+                    nav.classList.toggle(
+                        "active"
+                    );
+
                 }
-
-            });
-
-        });
-
-    }
-
-
-    /* =====================================================
-       SMOOTH SCROLL
-       ===================================================== */
-
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-
-        link.addEventListener("click", function(event) {
-
-            const targetID = this.getAttribute("href");
-
-            if (!targetID || targetID === "#") return;
-
-            const target = document.querySelector(targetID);
-
-            if (!target) return;
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-
-        });
-
-    });
-
-
-    /* =====================================================
-       SCROLL REVEAL
-       ===================================================== */
-
-    const revealElements = document.querySelectorAll(
-        ".reveal, .section-title, .character-card, .armor-card, .weapon-card, .tool-card, .story-item"
-    );
-
-
-    if ("IntersectionObserver" in window) {
-
-        const revealObserver = new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add("visible");
-
-                        revealObserver.unobserve(entry.target);
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-
-        revealElements.forEach(element => {
-
-            element.classList.add("reveal");
-
-            revealObserver.observe(element);
-
-        });
-
-    } else {
-
-        revealElements.forEach(element => {
-            element.classList.add("visible");
-        });
-
-    }
-
-
-    /* =====================================================
-       CHARACTER CARDS
-       ===================================================== */
-
-    const characterCards = document.querySelectorAll(
-        ".character-card"
-    );
-
-    const characterModal = document.getElementById(
-        "character-modal"
-    );
-
-    const modalTitle = document.getElementById(
-        "modal-title"
-    );
-
-    const modalContent = document.getElementById(
-        "modal-content"
-    );
-
-    const modalClose = document.querySelector(
-        ".modal-close"
-    );
-
-
-    function openCharacter(character) {
-
-        if (!characterModal) return;
-
-        const data = AKZ_DATA[character];
-
-        if (!data) return;
-
-
-        if (modalTitle) {
-            modalTitle.textContent =
-                `${data.name} — ${data.title}`;
-        }
-
-
-        if (modalContent) {
-
-            let html = `
-                <p class="modal-description">
-                    ${data.description}
-                </p>
-
-                <div class="modal-roles">
-            `;
-
-
-            data.roles.forEach(role => {
-
-                html += `
-                    <span class="role-tag">
-                        ${role}
-                    </span>
-                `;
-
-            });
-
-
-            html += `</div>`;
-
-
-            if (data.quote) {
-
-                html += `
-                    <blockquote>
-                        "${data.quote}"
-                    </blockquote>
-                `;
-
-            }
-
-
-            if (character === "akzzz") {
-
-                html += `
-                    <div class="modal-feature">
-                        <span>GREATEST CREATION</span>
-                        <strong>
-                            ${data.creation}
-                        </strong>
-                    </div>
-                `;
-
-            }
-
-
-            if (character === "relvo") {
-
-                html += `
-                    <div class="modal-feature">
-                        <span>SIGNATURE WEAPON</span>
-                        <strong>
-                            NETHERITE MACE
-                        </strong>
-                    </div>
-                `;
-
-            }
-
-
-            modalContent.innerHTML = html;
-
-        }
-
-
-        characterModal.classList.add("active");
-
-        document.body.classList.add("modal-open");
-
-    }
-
-
-    characterCards.forEach(card => {
-
-        card.addEventListener("click", () => {
-
-            const character =
-                card.dataset.character ||
-                card.getAttribute("data-character");
-
-            if (character) {
-                openCharacter(character);
-            }
-
-        });
-
-    });
-
-
-    /* =====================================================
-       CLOSE MODAL
-       ===================================================== */
-
-    function closeModal() {
-
-        if (!characterModal) return;
-
-        characterModal.classList.remove("active");
-
-        document.body.classList.remove("modal-open");
-
-    }
-
-
-    if (modalClose) {
-
-        modalClose.addEventListener(
-            "click",
-            closeModal
-        );
-
-    }
-
-
-    if (characterModal) {
-
-        characterModal.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    event.target === characterModal
-                ) {
-                    closeModal();
-                }
-
-            }
-        );
-
-    }
-
-
-    /* ESC KEY */
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (event.key === "Escape") {
-                closeModal();
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       MACE IMPACT EFFECT
-       ===================================================== */
-
-    const maceSection = document.querySelector(
-        ".mace-section"
-    );
-
-    const maceButton = document.querySelector(
-        ".mace-trigger"
-    );
-
-
-    function maceImpact() {
-
-        document.body.classList.add(
-            "mace-impact"
-        );
-
-
-        /* Screen flash */
-
-        const flash =
-            document.createElement("div");
-
-        flash.className =
-            "impact-flash";
-
-        document.body.appendChild(flash);
-
-
-        /* Shockwave */
-
-        const shockwave =
-            document.createElement("div");
-
-        shockwave.className =
-            "shockwave";
-
-        document.body.appendChild(shockwave);
-
-
-        /* Camera shake */
-
-        document.body.classList.add(
-            "screen-shake"
-        );
-
-
-        setTimeout(() => {
-
-            document.body.classList.remove(
-                "mace-impact"
-            );
-
-            document.body.classList.remove(
-                "screen-shake"
-            );
-
-        }, 500);
-
-
-        setTimeout(() => {
-
-            flash.remove();
-
-        }, 600);
-
-
-        setTimeout(() => {
-
-            shockwave.remove();
-
-        }, 1000);
-
-    }
-
-
-    if (maceButton) {
-
-        maceButton.addEventListener(
-            "click",
-            maceImpact
-        );
-
-    }
-
-
-    /* Click mace section */
-
-    if (maceSection) {
-
-        maceSection.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    event.target.closest(
-                        ".mace-trigger"
-                    )
-                ) return;
-
-                maceImpact();
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       PARTICLE SYSTEM
-       ===================================================== */
-
-    const particleContainer =
-        document.querySelector(
-            ".particles"
-        );
-
-
-    if (particleContainer) {
-
-        for (let i = 0; i < 35; i++) {
-
-            const particle =
-                document.createElement("span");
-
-            particle.className =
-                "particle";
-
-            particle.style.left =
-                Math.random() * 100 + "%";
-
-            particle.style.animationDelay =
-                Math.random() * 8 + "s";
-
-            particle.style.animationDuration =
-                5 + Math.random() * 8 + "s";
-
-            particle.style.opacity =
-                0.2 + Math.random() * 0.6;
-
-            particleContainer.appendChild(
-                particle
             );
 
         }
 
-    }
 
+        /* =============================================
+           NAV LINKS
+        ============================================= */
 
-    /* =====================================================
-       PARALLAX EFFECT
-       ===================================================== */
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
 
-    const parallaxElements =
-        document.querySelectorAll(
-            "[data-parallax]"
-        );
+                link.addEventListener(
+                    "click",
+                    () => {
 
+                        if (nav) {
 
-    if (parallaxElements.length) {
+                            nav.classList.remove(
+                                "active"
+                            );
 
-        window.addEventListener(
-            "scroll",
-            () => {
-
-                const scrollY =
-                    window.scrollY;
-
-                parallaxElements.forEach(
-                    element => {
-
-                        const speed =
-                            parseFloat(
-                                element.dataset.parallax
-                            ) || 0.2;
-
-                        element.style.transform =
-                            `translateY(${scrollY * speed}px)`;
+                        }
 
                     }
                 );
 
-            },
-            { passive: true }
-        );
-
-    }
+            });
 
 
-    /* =====================================================
-       NAVBAR SCROLL EFFECT
-       ===================================================== */
+        /* =============================================
+           HEADER
+        ============================================= */
 
-    const header =
-        document.querySelector("header");
+        const header =
+            document.getElementById("header");
 
-
-    if (header) {
 
         window.addEventListener(
             "scroll",
             () => {
 
-                if (window.scrollY > 60) {
+                if (!header) return;
+
+                if (
+                    window.scrollY > 50
+                ) {
 
                     header.classList.add(
                         "scrolled"
@@ -763,238 +200,403 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
             },
-            { passive: true }
-        );
-
-    }
-
-
-    /* =====================================================
-       ACTIVE NAVIGATION LINK
-       ===================================================== */
-
-    const sections =
-        document.querySelectorAll(
-            "section[id]"
-        );
-
-    const links =
-        document.querySelectorAll(
-            ".nav-links a"
+            {
+                passive: true
+            }
         );
 
 
-    if (
-        sections.length &&
-        links.length &&
-        "IntersectionObserver" in window
-    ) {
+        /* =============================================
+           CHARACTER MODAL
+        ============================================= */
 
-        const navObserver =
-            new IntersectionObserver(
-                entries => {
+        const modal =
+            document.getElementById(
+                "character-modal"
+            );
 
-                    entries.forEach(entry => {
+        const modalTitle =
+            document.getElementById(
+                "modal-title"
+            );
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+        const modalContent =
+            document.getElementById(
+                "modal-content"
+            );
 
-                            const id =
-                                entry.target.id;
+        const modalClose =
+            document.querySelector(
+                ".modal-close"
+            );
 
-                            links.forEach(link => {
 
-                                link.classList.remove(
-                                    "active"
-                                );
+        function openModal(character) {
 
+            if (!modal) return;
+
+            const data =
+                AKZ_DATA[character];
+
+            if (!data) return;
+
+
+            if (modalTitle) {
+
+                modalTitle.textContent =
+                    `${data.name} — ${data.title}`;
+
+            }
+
+
+            if (modalContent) {
+
+                modalContent.innerHTML = `
+
+                    <p class="modal-description">
+                        ${data.description}
+                    </p>
+
+                    <div class="modal-roles">
+
+                        ${data.roles
+                            .map(role => `
+                                <span class="role-tag">
+                                    ${role}
+                                </span>
+                            `)
+                            .join("")}
+
+                    </div>
+
+                    <blockquote>
+                        "${data.quote}"
+                    </blockquote>
+
+                `;
+
+            }
+
+
+            modal.classList.add(
+                "active"
+            );
+
+            document.body.classList.add(
+                "modal-open"
+            );
+
+        }
+
+
+        document
+            .querySelectorAll(".character-card")
+            .forEach(card => {
+
+                card.addEventListener(
+                    "click",
+                    () => {
+
+                        const character =
+                            card.dataset.character;
+
+                        openModal(character);
+
+                    }
+                );
+
+            });
+
+
+        function closeModal() {
+
+            if (!modal) return;
+
+            modal.classList.remove(
+                "active"
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+
+        }
+
+
+        if (modalClose) {
+
+            modalClose.addEventListener(
+                "click",
+                closeModal
+            );
+
+        }
+
+
+        if (modal) {
+
+            modal.addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        event.target === modal
+                    ) {
+
+                        closeModal();
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closeModal();
+
+                }
+
+            }
+        );
+
+
+        /* =============================================
+           PARTICLES
+        ============================================= */
+
+        const particleContainer =
+            document.querySelector(
+                ".particles"
+            );
+
+
+        if (particleContainer) {
+
+            for (
+                let i = 0;
+                i < 35;
+                i++
+            ) {
+
+                const particle =
+                    document.createElement(
+                        "span"
+                    );
+
+                particle.className =
+                    "particle";
+
+                particle.style.left =
+                    `${Math.random() * 100}%`;
+
+                particle.style.animationDuration =
+                    `${5 + Math.random() * 8}s`;
+
+                particle.style.animationDelay =
+                    `${Math.random() * 8}s`;
+
+                particleContainer.appendChild(
+                    particle
+                );
+
+            }
+
+        }
+
+
+        /* =============================================
+           MACE IMPACT
+        ============================================= */
+
+        document
+            .querySelectorAll(".mace-trigger")
+            .forEach(button => {
+
+                button.addEventListener(
+                    "click",
+                    event => {
+
+                        event.stopPropagation();
+
+                        maceImpact();
+
+                    }
+                );
+
+            });
+
+
+        function maceImpact() {
+
+            document.body.classList.add(
+                "screen-shake"
+            );
+
+
+            const flash =
+                document.createElement(
+                    "div"
+                );
+
+            flash.className =
+                "impact-flash";
+
+            document.body.appendChild(
+                flash
+            );
+
+
+            const shockwave =
+                document.createElement(
+                    "div"
+                );
+
+            shockwave.className =
+                "shockwave";
+
+            document.body.appendChild(
+                shockwave
+            );
+
+
+            setTimeout(() => {
+
+                document.body.classList.remove(
+                    "screen-shake"
+                );
+
+            }, 400);
+
+
+            setTimeout(() => {
+
+                flash.remove();
+
+            }, 600);
+
+
+            setTimeout(() => {
+
+                shockwave.remove();
+
+            }, 1100);
+
+        }
+
+
+        /* =============================================
+           SCROLL REVEAL
+        ============================================= */
+
+        const revealElements =
+            document.querySelectorAll(
+                ".character-card, .equipment-card, .story-item, .gallery img"
+            );
+
+
+        if (
+            "IntersectionObserver"
+            in window
+        ) {
+
+            const observer =
+                new IntersectionObserver(
+                    entries => {
+
+                        entries.forEach(
+                            entry => {
 
                                 if (
-                                    link.getAttribute(
-                                        "href"
-                                    ) === `#${id}`
+                                    entry.isIntersecting
                                 ) {
 
-                                    link.classList.add(
-                                        "active"
+                                    entry.target.style.opacity =
+                                        "1";
+
+                                    entry.target.style.transform =
+                                        "translateY(0)";
+
+                                    observer.unobserve(
+                                        entry.target
                                     );
 
                                 }
 
-                            });
-
-                        }
-
-                    });
-
-                },
-                {
-                    rootMargin:
-                        "-25% 0px -65% 0px"
-                }
-            );
-
-
-        sections.forEach(section => {
-
-            navObserver.observe(
-                section
-            );
-
-        });
-
-    }
-
-
-    /* =====================================================
-       BUTTON RIPPLE EFFECT
-       ===================================================== */
-
-    document
-        .querySelectorAll("button, .btn")
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                event => {
-
-                    const rect =
-                        button.getBoundingClientRect();
-
-                    const ripple =
-                        document.createElement(
-                            "span"
+                            }
                         );
 
-                    ripple.className =
-                        "ripple";
+                    },
+                    {
+                        threshold: .1
+                    }
+                );
 
-                    ripple.style.left =
-                        `${event.clientX - rect.left}px`;
 
-                    ripple.style.top =
-                        `${event.clientY - rect.top}px`;
+            revealElements.forEach(
+                element => {
 
-                    button.appendChild(
-                        ripple
+                    element.style.opacity =
+                        "0";
+
+                    element.style.transform =
+                        "translateY(30px)";
+
+                    element.style.transition =
+                        "opacity .7s ease, transform .7s ease";
+
+                    observer.observe(
+                        element
                     );
 
-
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
-
                 }
             );
-
-        });
-
-
-    /* =====================================================
-       ACADEMY REVEAL
-       ===================================================== */
-
-    const academy =
-        document.querySelector(
-            ".academy-reveal"
-        );
-
-
-    if (academy) {
-
-        const academyObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            academy.classList.add(
-                                "revealed"
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.25
-                }
-            );
-
-
-        academyObserver.observe(
-            academy
-        );
-
-    }
-
-
-    /* =====================================================
-       EQUIPMENT ANIMATION
-       ===================================================== */
-
-    const equipmentCards =
-        document.querySelectorAll(
-            ".armor-card, .weapon-card, .tool-card"
-        );
-
-
-    equipmentCards.forEach(
-        (card, index) => {
-
-            card.style.transitionDelay =
-                `${index * 60}ms`;
 
         }
-    );
 
 
-    /* =====================================================
-       PREVENT BROKEN IMAGE ICONS
-       ===================================================== */
+        /* =============================================
+           IMAGE ERROR HANDLING
+        ============================================= */
 
-    document
-        .querySelectorAll("img")
-        .forEach(img => {
+        document
+            .querySelectorAll("img")
+            .forEach(img => {
 
-            img.addEventListener(
-                "error",
-                () => {
+                img.addEventListener(
+                    "error",
+                    () => {
 
-                    img.style.display =
-                        "none";
+                        img.style.opacity =
+                            "0";
 
-                }
-            );
+                        img.parentElement
+                            ?.classList
+                            .add(
+                                "image-missing"
+                            );
 
-        });
+                    }
+                );
 
-
-    /* =====================================================
-       PAGE READY
-       ===================================================== */
-
-    document.body.classList.add(
-        "page-ready"
-    );
-
-});
+            });
 
 
-/* =========================================================
+    }
+);
+
+
+/* =====================================================
    GLOBAL ERROR FAILSAFE
-   ========================================================= */
-
-/*
-   If another script error happens, don't let it
-   trap the visitor behind the loading screen.
-*/
+===================================================== */
 
 window.addEventListener(
     "error",
@@ -1007,16 +609,7 @@ window.addEventListener(
 
         if (loader) {
 
-            loader.classList.add(
-                "hide"
-            );
-
-            setTimeout(() => {
-
-                loader.style.display =
-                    "none";
-
-            }, 500);
+            loader.remove();
 
         }
 
