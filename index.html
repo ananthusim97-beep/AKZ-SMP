@@ -1,556 +1,855 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050505">
-  <title>AKZ-SMP — Two Legends. One World.</title>
-  <meta name="description" content="AKZ-SMP — The story of two legends. RELVO, the Mace Master. AKZZZ, the Legendary Builder.">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#050505">
+
+    <title>AKZ-SMP | TWO LEGENDS. ONE WORLD.</title>
+
+    <link rel="stylesheet"
+          href="./style.css">
 </head>
 
 <body>
 
-  <div id="loader">
-    <div class="loader-logo">AKZ</div>
-    <div class="loader-line"></div>
-    <p>ENTERING THE WORLD</p>
-  </div>
+<!-- =====================================================
+     LOADER
+===================================================== -->
 
-  <div class="particles" id="particles"></div>
+<div id="loader">
+    <div class="loader-inner">
+        <div class="loader-logo">AKZ-SMP</div>
+        <div class="loader-line"></div>
+        <div class="loader-text">ENTERING THE WORLD...</div>
+    </div>
+</div>
 
-  <header>
-    <nav>
-      <a href="#home" class="logo">AKZ<span>-SMP</span></a>
 
-      <div class="nav-links">
-        <a href="#about">ABOUT</a>
-        <a href="#legends">LEGENDS</a>
-        <a href="#relvo">RELVO</a>
-        <a href="#academy">ACADEMY</a>
-        <a href="#story">STORY</a>
-      </div>
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
-      <button class="menu-btn" id="menuBtn">☰</button>
-    </nav>
-  </header>
+<header id="header">
 
-  <!-- HERO -->
+    <div class="nav-container">
 
-  <section class="hero" id="home">
+        <a href="#home" class="logo">
+            AKZ<span>-SMP</span>
+        </a>
+
+        <button class="menu-toggle">
+            ☰
+        </button>
+
+        <nav class="nav-links">
+
+            <a href="#about">ABOUT</a>
+            <a href="#legends">LEGENDS</a>
+            <a href="#relvo">RELVO</a>
+            <a href="#armory">ARMORY</a>
+            <a href="#academy">ACADEMY</a>
+            <a href="#story">STORY</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section id="home" class="hero">
+
+    <div class="hero-background"></div>
 
     <div class="hero-overlay"></div>
 
+    <div class="particles"></div>
+
     <div class="hero-content">
 
-      <p class="eyebrow">A MINECRAFT CINEMATIC UNIVERSE</p>
+        <div class="hero-small">
+            A MINECRAFT SURVIVAL STORY
+        </div>
 
-      <h1>AKZ<span>-SMP</span></h1>
+        <h1>
+            AKZ<span>-SMP</span>
+        </h1>
 
-      <p class="hero-subtitle">
-        TWO LEGENDS.<br>
-        ONE WORLD.
-      </p>
+        <p>
+            TWO LEGENDS. ONE WORLD.
+        </p>
 
-      <div class="hero-buttons">
-        <a href="#legends" class="btn primary">MEET THE LEGENDS</a>
-        <a href="#story" class="btn secondary">ENTER THE STORY</a>
-      </div>
-
-    </div>
-
-    <div class="scroll-indicator">
-      <span></span>
-      SCROLL TO ENTER
-    </div>
-
-  </section>
-
-
-  <!-- ABOUT -->
-
-  <section class="section about" id="about">
-
-    <div class="section-number">01</div>
-
-    <div class="section-heading">
-      <p class="eyebrow">THE WORLD</p>
-      <h2>WELCOME TO<br><span>AKZ-SMP</span></h2>
-    </div>
-
-    <div class="about-text">
-      <p class="large">
-        Every world has a story.
-        This one has <strong>two legends.</strong>
-      </p>
-
-      <p>
-        AKZ-SMP is a world shaped by two completely different paths.
-        One mastered combat. The other mastered creation.
-      </p>
-
-      <p>
-        <strong>RELVO</strong> became a warrior feared for his mastery
-        of the mace, PvP and survival.
-      </p>
-
-      <p>
-        <strong>AKZZZ</strong> became a legendary builder whose greatest
-        creation would become one of the most important landmarks
-        in the world.
-      </p>
-    </div>
-
-  </section>
-
-
-  <!-- MYSTERY -->
-
-  <section class="cinematic mystery">
-
-    <div class="cinematic-content">
-
-      <p class="eyebrow">THE WORLD IS QUIET</p>
-
-      <h2>
-        SOMETHING<br>
-        IS COMING.
-      </h2>
-
-      <p>
-        Two paths are about to collide.
-      </p>
+        <a href="#legends" class="btn">
+            ENTER THE WORLD
+        </a>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- TWO LEGENDS -->
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-  <section class="section legends" id="legends">
+<section id="about" class="section">
 
-    <div class="section-number">02</div>
+    <div class="section-container">
 
-    <div class="section-heading center">
-      <p class="eyebrow">THE PROTAGONISTS</p>
-      <h2>THE TWO<br><span>LEGENDS</span></h2>
+        <div class="section-label">
+            01 — ABOUT
+        </div>
+
+        <h2>
+            ONE WORLD.<br>
+            <span>TWO LEGENDS.</span>
+        </h2>
+
+        <p class="large-text">
+            AKZ-SMP is the story of two players who chose
+            completely different paths.
+        </p>
+
+        <div class="about-grid">
+
+            <div>
+                <p>
+                    <strong>RELVO</strong> became a warrior.
+                    A mace master, PvP expert and survival
+                    specialist capable of dominating the
+                    battlefield.
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    <strong>AKZZZ</strong> became a builder.
+                    A legendary architect whose greatest
+                    creation would become one of the most
+                    important locations in the world.
+                </p>
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="legend-grid">
+</section>
 
-      <!-- RELVO -->
 
-      <article class="legend-card relvo-card" data-character="relvo">
+<!-- =====================================================
+     TWO LEGENDS
+===================================================== -->
 
-        <div class="character-image relvo-image">
-          <div class="character-placeholder">
+<section id="legends" class="section dark">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            02 — THE TWO LEGENDS
+        </div>
+
+        <h2>
+            CHOOSE YOUR<br>
+            <span>LEGEND.</span>
+        </h2>
+
+
+        <div class="character-grid">
+
+
+            <!-- RELVO -->
+
+            <article class="character-card"
+                     data-character="relvo">
+
+                <div class="character-image">
+
+                    <img src="./images/relvo.png"
+                         alt="RELVO - The Mace Master"
+                         loading="lazy">
+
+                    <div class="image-fallback">
+                        RELVO
+                    </div>
+
+                </div>
+
+                <div class="character-info">
+
+                    <div class="character-number">
+                        01
+                    </div>
+
+                    <h3>RELVO</h3>
+
+                    <h4>THE MACE MASTER</h4>
+
+                    <p>
+                        Mace Expert • PvP Expert •
+                        Survival Specialist
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <!-- AKZZZ -->
+
+            <article class="character-card"
+                     data-character="akzzz">
+
+                <div class="character-image">
+
+                    <img src="./images/akzzz.png"
+                         alt="AKZZZ - The Legendary Builder"
+                         loading="lazy">
+
+                    <div class="image-fallback">
+                        AKZZZ
+                    </div>
+
+                </div>
+
+                <div class="character-info">
+
+                    <div class="character-number">
+                        02
+                    </div>
+
+                    <h3>AKZZZ</h3>
+
+                    <h4>THE LEGENDARY BUILDER</h4>
+
+                    <p>
+                        Legendary Builder • Master Architect •
+                        World Creator
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RELVO
+===================================================== -->
+
+<section id="relvo" class="relvo-section">
+
+    <div class="relvo-bg"></div>
+
+    <div class="relvo-overlay"></div>
+
+    <div class="relvo-content">
+
+        <div class="section-label">
+            03 — THE WARRIOR
+        </div>
+
+        <h2>
             RELVO
-          </div>
-        </div>
+        </h2>
 
-        <div class="legend-info">
-          <p class="role">THE WARRIOR</p>
+        <h3>
+            THE MACE MASTER
+        </h3>
 
-          <h3>RELVO</h3>
+        <p>
+            MACE EXPERT • PVP EXPERT •
+            SURVIVAL SPECIALIST
+        </p>
 
-          <p class="title">MACE MASTER</p>
+        <blockquote>
+            "When the battle begins, Relvo doesn't run."
+        </blockquote>
 
-          <div class="tags">
-            <span>PvP EXPERT</span>
-            <span>SURVIVAL SPECIALIST</span>
-          </div>
-
-          <button class="discover-btn">
-            DISCOVER RELVO →
-          </button>
-        </div>
-
-      </article>
-
-
-      <!-- AKZZZ -->
-
-      <article class="legend-card akzzz-card" data-character="akzzz">
-
-        <div class="character-image akzzz-image">
-          <div class="character-placeholder">
-            AKZZZ
-          </div>
-        </div>
-
-        <div class="legend-info">
-          <p class="role">THE CREATOR</p>
-
-          <h3>AKZZZ</h3>
-
-          <p class="title">LEGENDARY BUILDER</p>
-
-          <div class="tags">
-            <span>MASTER ARCHITECT</span>
-            <span>WORLD BUILDER</span>
-          </div>
-
-          <button class="discover-btn">
-            DISCOVER AKZZZ →
-          </button>
-        </div>
-
-      </article>
+        <button class="btn mace-trigger">
+            UNLEASH THE MACE
+        </button>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- RELVO INTRO -->
+<!-- =====================================================
+     MACE
+===================================================== -->
 
-  <section class="cinematic relvo-intro" id="relvo">
+<section class="mace-section">
 
-    <div class="smoke"></div>
+    <div class="mace-image">
 
-    <div class="cinematic-content">
-
-      <p class="eyebrow">THE WARRIOR</p>
-
-      <h2>WHEN THE<br><span>BATTLE BEGINS</span></h2>
-
-      <div class="reveal-character">
-        <div class="armor-glow"></div>
-        <div class="character-silhouette">RELVO</div>
-      </div>
-
-      <p class="cinematic-line">
-        "When the battle begins, Relvo doesn't run."
-      </p>
-
-      <div class="relvo-title">
-        <h3>RELVO</h3>
-        <p>MACE MASTER</p>
-        <small>PvP EXPERT • SURVIVAL SPECIALIST</small>
-      </div>
+        <img src="./images/relvo-mace.png"
+             alt="Relvo holding the Minecraft mace"
+             loading="lazy">
 
     </div>
 
-  </section>
-
-
-  <!-- MACE -->
-
-  <section class="mace-section" id="mace">
-
-    <div class="mace-bg"></div>
+    <div class="mace-overlay"></div>
 
     <div class="mace-content">
 
-      <p class="eyebrow">SIGNATURE WEAPON</p>
+        <div class="section-label">
+            SIGNATURE WEAPON
+        </div>
 
-      <h2>THE<br><span>MACE</span></h2>
+        <h2>
+            THE<br>
+            <span>MACE</span>
+        </h2>
 
-      <div class="mace-weapon">
-        <div class="mace-icon">⚒</div>
-      </div>
+        <p>
+            One impact can change everything.
+        </p>
 
-      <p class="mace-description">
-        One weapon defines the warrior.
-      </p>
-
-      <button class="impact-button" id="maceButton">
-        EXPERIENCE THE IMPACT
-      </button>
-
-    </div>
-
-    <div class="impact-flash" id="impactFlash"></div>
-    <div class="shockwave" id="shockwave"></div>
-
-  </section>
-
-
-  <!-- ARMORY -->
-
-  <section class="section armory">
-
-    <div class="section-number">03</div>
-
-    <div class="section-heading">
-      <p class="eyebrow">RELVO'S EQUIPMENT</p>
-      <h2>THE<br><span>ARMORY</span></h2>
-    </div>
-
-    <div class="inventory">
-
-      <div class="inventory-category">
-        <h3>ARMOR</h3>
-
-        <div class="item-grid" id="armorItems"></div>
-      </div>
-
-      <div class="inventory-category">
-        <h3>WEAPONS</h3>
-
-        <div class="item-grid" id="weaponItems"></div>
-      </div>
-
-      <div class="inventory-category">
-        <h3>TOOLS</h3>
-
-        <div class="item-grid" id="toolItems"></div>
-      </div>
+        <button class="btn mace-trigger">
+            STRIKE
+        </button>
 
     </div>
 
-  </section>
+</section>
 
 
-  <!-- AKZZZ ACADEMY -->
+<!-- =====================================================
+     ARMORY
+===================================================== -->
 
-  <section class="academy-section" id="academy">
+<section id="armory" class="section dark">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            04 — RELVO'S ARMORY
+        </div>
+
+        <h2>
+            THE<br>
+            <span>ARSENAL.</span>
+        </h2>
+
+
+        <!-- ARMOR -->
+
+        <h3 class="subheading">
+            NETHERITE ARMOR
+        </h3>
+
+        <div class="equipment-grid">
+
+
+            <div class="equipment-card">
+
+                <img src="./images/netherite-helmet.png"
+                     alt="Netherite Helmet">
+
+                <h4>HELMET</h4>
+
+                <p>
+                    Protection<br>
+                    Unbreaking<br>
+                    Mending<br>
+                    Respiration<br>
+                    Aqua Affinity
+                </p>
+
+                <small>
+                    NETHERITE TRIM
+                </small>
+
+            </div>
+
+
+            <div class="equipment-card">
+
+                <img src="./images/netherite-chestplate.png"
+                     alt="Netherite Chestplate">
+
+                <h4>CHESTPLATE</h4>
+
+                <p>
+                    Protection<br>
+                    Unbreaking<br>
+                    Mending<br>
+                    Thorns
+                </p>
+
+                <small>
+                    NETHERITE TRIM
+                </small>
+
+            </div>
+
+
+            <div class="equipment-card">
+
+                <img src="./images/netherite-leggings.png"
+                     alt="Netherite Leggings">
+
+                <h4>LEGGINGS</h4>
+
+                <p>
+                    Protection<br>
+                    Unbreaking<br>
+                    Mending<br>
+                    Swift Sneak
+                </p>
+
+                <small>
+                    NETHERITE TRIM
+                </small>
+
+            </div>
+
+
+            <div class="equipment-card">
+
+                <img src="./images/netherite-boots.png"
+                     alt="Netherite Boots">
+
+                <h4>BOOTS</h4>
+
+                <p>
+                    Protection<br>
+                    Unbreaking<br>
+                    Mending<br>
+                    Feather Falling<br>
+                    Depth Strider
+                </p>
+
+                <small>
+                    NETHERITE TRIM
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- WEAPONS -->
+
+        <h3 class="subheading">
+            WEAPONS
+        </h3>
+
+        <div class="equipment-grid weapons">
+
+
+            <div class="equipment-card weapon">
+
+                <img src="./images/mace.png"
+                     alt="Netherite Mace">
+
+                <h4>THE MACE</h4>
+
+                <p>
+                    Density<br>
+                    Unbreaking<br>
+                    Mending<br>
+                    Wind Burst
+                </p>
+
+            </div>
+
+
+            <div class="equipment-card weapon">
+
+                <img src="./images/netherite-sword.png"
+                     alt="Netherite Sword">
+
+                <h4>NETHERITE SWORD</h4>
+
+                <p>
+                    Sharpness IV<br>
+                    Unbreaking<br>
+                    Mending<br>
+                    Sweeping Edge<br>
+                    Looting<br>
+                    Fire Aspect
+                </p>
+
+            </div>
+
+
+            <div class="equipment-card weapon">
+
+                <img src="./images/netherite-axe.png"
+                     alt="Netherite Axe">
+
+                <h4>NETHERITE AXE</h4>
+
+                <p>
+                    Sharpness<br>
+                    Efficiency<br>
+                    Unbreaking<br>
+                    Mending
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOOLS -->
+
+        <h3 class="subheading">
+            TOOLS
+        </h3>
+
+        <div class="equipment-grid">
+
+
+            <div class="equipment-card">
+
+                <img src="./images/netherite-pickaxe.png"
+                     alt="Netherite Pickaxe">
+
+                <h4>PICKAXE</h4>
+
+                <p>
+                    Efficiency<br>
+                    Fortune<br>
+                    Unbreaking<br>
+                    Mending
+                </p>
+
+            </div>
+
+
+            <div class="equipment-card">
+
+                <img src="./images/netherite-shovel.png"
+                     alt="Netherite Shovel">
+
+                <h4>SHOVEL</h4>
+
+                <p>
+                    Efficiency<br>
+                    Unbreaking<br>
+                    Mending
+                </p>
+
+            </div>
+
+
+            <div class="equipment-card">
+
+                <img src="./images/netherite-hoe.png"
+                     alt="Netherite Hoe">
+
+                <h4>HOE</h4>
+
+                <p>
+                    Efficiency<br>
+                    Unbreaking<br>
+                    Mending
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     AKZ ACADEMY
+===================================================== -->
+
+<section id="academy" class="academy-section">
+
+    <div class="academy-image">
+
+        <img src="./images/akz-academy.jpg"
+             alt="AKZ Academy built by AKZZZ"
+             loading="lazy">
+
+    </div>
 
     <div class="academy-overlay"></div>
 
     <div class="academy-content">
 
-      <p class="eyebrow">THE CREATOR</p>
-
-      <h2>AKZZZ</h2>
-
-      <p class="academy-title">
-        THE LEGENDARY BUILDER
-      </p>
-
-      <p class="academy-description">
-        Some warriors leave scars on the battlefield.
-        Some builders leave monuments behind.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- ACADEMY REVEAL -->
-
-  <section class="academy-reveal">
-
-    <div class="academy-sky"></div>
-
-    <div class="academy-building">
-
-      <div class="building-glow"></div>
-
-      <div class="building-placeholder">
-        AKZ<br>ACADEMY
-      </div>
-
-    </div>
-
-    <div class="academy-text">
-
-      <p class="eyebrow">THE GREATEST CREATION</p>
-
-      <h2>THE AKZ<br><span>ACADEMY</span></h2>
-
-      <p>
-        Built by AKZZZ.
-        Remembered by the world.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- CONTRAST -->
-
-  <section class="contrast">
-
-    <div class="contrast-half warrior">
-
-      <p class="eyebrow">POWER THROUGH</p>
-
-      <h2>COMBAT</h2>
-
-      <p>RELVO</p>
-
-      <span>THE WARRIOR</span>
-
-    </div>
-
-    <div class="contrast-half builder">
-
-      <p class="eyebrow">POWER THROUGH</p>
-
-      <h2>CREATION</h2>
-
-      <p>AKZZZ</p>
-
-      <span>THE BUILDER</span>
-
-    </div>
-
-  </section>
-
-
-  <!-- STORY -->
-
-  <section class="section story" id="story">
-
-    <div class="section-number">04</div>
-
-    <div class="section-heading center">
-
-      <p class="eyebrow">THE CHRONICLES</p>
-
-      <h2>THE<br><span>STORY</span></h2>
-
-    </div>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-
-        <div class="timeline-dot"></div>
-
-        <div>
-          <p class="timeline-label">THE BUILDER</p>
-          <h3>A WORLD TAKES SHAPE</h3>
-
-          <p>
-            AKZZZ enters the world and begins creating.
-            Block by block, structure by structure,
-            his vision becomes reality.
-          </p>
+        <div class="section-label">
+            05 — THE BUILDER
         </div>
 
-      </div>
+        <h2>
+            THE AKZ<br>
+            <span>ACADEMY</span>
+        </h2>
+
+        <p>
+            BUILT BY AKZZZ.
+        </p>
+
+        <p>
+            REMEMBERED BY THE WORLD.
+        </p>
+
+    </div>
+
+</section>
 
 
-      <div class="timeline-item">
+<!-- =====================================================
+     ACADEMY GALLERY
+===================================================== -->
 
-        <div class="timeline-dot"></div>
+<section class="section">
 
-        <div>
-          <p class="timeline-label">THE WARRIOR</p>
+    <div class="section-container">
 
-          <h3>THE MACE MASTER</h3>
+        <div class="section-label">
+            THE CREATION
+        </div>
 
-          <p>
-            RELVO masters survival and combat.
-            His skill with the mace becomes his defining weapon.
-          </p>
+        <h2>
+            BUILT FROM<br>
+            <span>NOTHING.</span>
+        </h2>
+
+        <div class="gallery">
+
+            <img src="./images/academy-1.jpg"
+                 alt="AKZ Academy exterior">
+
+            <img src="./images/academy-2.jpg"
+                 alt="AKZ Academy entrance">
+
+            <img src="./images/academy-3.jpg"
+                 alt="AKZ Academy interior">
+
+            <img src="./images/academy-4.jpg"
+                 alt="AKZ Academy at night">
 
         </div>
 
-      </div>
+    </div>
+
+</section>
 
 
-      <div class="timeline-item">
+<!-- =====================================================
+     CONTRAST
+===================================================== -->
 
-        <div class="timeline-dot"></div>
+<section class="contrast-section">
 
-        <div>
+    <div class="contrast-card warrior">
 
-          <p class="timeline-label">THE TWO</p>
+        <span>THE WARRIOR</span>
 
-          <h3>TWO DIFFERENT PATHS</h3>
+        <h2>RELVO</h2>
 
-          <p>
-            One creates.
-            One conquers.
-            Together, they define AKZ-SMP.
-          </p>
+        <p>
+            POWER COMES FROM COMBAT.
+        </p>
+
+    </div>
+
+
+    <div class="contrast-card builder">
+
+        <span>THE BUILDER</span>
+
+        <h2>AKZZZ</h2>
+
+        <p>
+            POWER COMES FROM CREATION.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STORY
+===================================================== -->
+
+<section id="story" class="section dark">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            06 — THE STORY
+        </div>
+
+        <h2>
+            TWO PATHS.<br>
+            <span>ONE WORLD.</span>
+        </h2>
+
+
+        <div class="story">
+
+            <div class="story-item">
+
+                <span>01</span>
+
+                <div>
+
+                    <h3>THE BUILDER</h3>
+
+                    <p>
+                        AKZZZ enters the world and begins
+                        creating. His greatest creation
+                        becomes the AKZ Academy.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="story-item">
+
+                <span>02</span>
+
+                <div>
+
+                    <h3>THE WARRIOR</h3>
+
+                    <p>
+                        RELVO masters survival and combat,
+                        becoming a terrifying PvP fighter
+                        and mace expert.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="story-item">
+
+                <span>03</span>
+
+                <div>
+
+                    <h3>THE TWO</h3>
+
+                    <p>
+                        One creates.
+                        One conquers.
+                        Together, they define AKZ-SMP.
+                    </p>
+
+                </div>
+
+            </div>
 
         </div>
 
-      </div>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL
+===================================================== -->
+
+<section class="final-section">
+
+    <div class="final-image">
+
+        <img src="./images/final-akz-smp.jpg"
+             alt="AKZZZ and Relvo together"
+             loading="lazy">
 
     </div>
 
-  </section>
-
-
-  <!-- FINAL -->
-
-  <section class="final-section">
-
-    <div class="final-world"></div>
-
-    <div class="final-characters">
-
-      <div class="final-character">
-        <span>AKZZZ</span>
-        <small>THE BUILDER</small>
-      </div>
-
-      <div class="final-character">
-        <span>RELVO</span>
-        <small>THE MACE MASTER</small>
-      </div>
-
-    </div>
-
-    <div class="final-academy">
-      AKZ ACADEMY
-    </div>
+    <div class="final-overlay"></div>
 
     <div class="final-content">
 
-      <p class="eyebrow">THE WORLD THEY CREATED</p>
+        <div class="final-names">
 
-      <h2>AKZ<span>-SMP</span></h2>
+            <span>AKZZZ</span>
 
-      <h3>TWO LEGENDS. ONE WORLD.</h3>
+            <b>×</b>
 
-      <p>THE STORY HAS ONLY JUST BEGUN.</p>
+            <span>RELVO</span>
+
+        </div>
+
+        <h2>
+            AKZ-SMP
+        </h2>
+
+        <p>
+            TWO LEGENDS. ONE WORLD.
+        </p>
+
+        <small>
+            THE STORY HAS ONLY JUST BEGUN.
+        </small>
 
     </div>
 
-  </section>
+</section>
 
 
-  <footer>
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-    <div class="footer-logo">AKZ-SMP</div>
+<footer>
+
+    <div>
+        AKZ-SMP
+    </div>
 
     <p>
-      TWO LEGENDS. ONE WORLD.
+        TWO LEGENDS. ONE WORLD.
     </p>
 
-    <div class="footer-players">
-      <span>AKZZZ — THE LEGENDARY BUILDER</span>
-      <span>RELVO — THE MACE MASTER</span>
-    </div>
-
-    <small>
-      © 2026 AKZ-SMP
-    </small>
-
-  </footer>
+</footer>
 
 
-  <div class="character-modal" id="characterModal">
+<!-- =====================================================
+     MODAL
+===================================================== -->
 
-    <button class="close-modal" id="closeModal">×</button>
+<div id="character-modal">
 
-    <div class="modal-content">
+    <div class="modal-box">
 
-      <p class="eyebrow" id="modalRole"></p>
+        <button class="modal-close">
+            ×
+        </button>
 
-      <h2 id="modalName"></h2>
+        <h2 id="modal-title"></h2>
 
-      <h3 id="modalTitle"></h3>
-
-      <p id="modalDescription"></p>
-
-      <div id="modalTags" class="tags"></div>
+        <div id="modal-content"></div>
 
     </div>
 
-  </div>
+</div>
 
 
-  <script src="script.js"></script>
+<script src="./script.js"></script>
 
 </body>
 </html>
