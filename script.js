@@ -1,604 +1,1024 @@
-/*
-===========================================================
-AKZ-SMP EDITABLE DATA
-Change player information, enchantments and equipment here.
-===========================================================
-*/
+/* =========================================================
+   AKZ-SMP — MAIN JAVASCRIPT
+   ========================================================= */
+
+"use strict";
+
+/* =========================================================
+   PLAYER DATA
+   ========================================================= */
 
 const AKZ_DATA = {
 
-  relvo: {
+    relvo: {
+        name: "RELVO",
+        title: "THE MACE MASTER",
+        roles: [
+            "Mace Expert",
+            "PvP Expert",
+            "Survival Specialist"
+        ],
 
-    name: "RELVO",
+        description:
+            "An extremely dangerous and experienced Minecraft warrior. Relvo has mastered survival, PvP and the devastating power of the mace.",
 
-    role: "THE WARRIOR",
+        quote:
+            "When the battle begins, Relvo doesn't run.",
 
-    title: "MACE MASTER",
+        armor: [
+            {
+                name: "Netherite Helmet",
+                enchantments: [
+                    "Protection",
+                    "Unbreaking",
+                    "Mending",
+                    "Respiration",
+                    "Aqua Affinity"
+                ],
+                trim: "Netherite Trim"
+            },
 
-    tags: [
-      "PvP EXPERT",
-      "SURVIVAL SPECIALIST"
-    ],
+            {
+                name: "Netherite Chestplate",
+                enchantments: [
+                    "Protection",
+                    "Unbreaking",
+                    "Mending",
+                    "Thorns"
+                ],
+                trim: "Netherite Trim"
+            },
 
-    description:
-      "The ultimate combat specialist of AKZ-SMP. Relvo is an extremely experienced survival warrior whose defining weapon is the mace. When the battle begins, Relvo doesn't run.",
+            {
+                name: "Netherite Leggings",
+                enchantments: [
+                    "Protection",
+                    "Unbreaking",
+                    "Mending",
+                    "Swift Sneak"
+                ],
+                trim: "Netherite Trim"
+            },
 
-    armor: [
+            {
+                name: "Netherite Boots",
+                enchantments: [
+                    "Protection",
+                    "Unbreaking",
+                    "Mending",
+                    "Feather Falling",
+                    "Depth Strider",
+                    "Soul Speed"
+                ],
+                trim: "Netherite Trim"
+            }
+        ],
 
-      {
-        name: "Netherite Helmet",
-        icon: "⛑",
-        trim: "WARD ARMOR TRIM",
-        enchantments: [
-          "Protection IV",
-          "Unbreaking III",
-          "Mending",
-          "Respiration III",
-          "Aqua Affinity"
+        weapons: [
+            {
+                name: "Netherite Mace",
+                description: "Relvo's signature weapon.",
+                enchantments: [
+                    "Density",
+                    "Unbreaking",
+                    "Mending",
+                    "Wind Burst"
+                ]
+            },
+
+            {
+                name: "Netherite Sword",
+                description: "A devastating close-range weapon.",
+                enchantments: [
+                    "Sharpness IV",
+                    "Unbreaking",
+                    "Mending",
+                    "Sweeping Edge",
+                    "Looting",
+                    "Fire Aspect"
+                ]
+            },
+
+            {
+                name: "Netherite Axe",
+                description: "Heavy combat weapon.",
+                enchantments: [
+                    "Sharpness",
+                    "Efficiency",
+                    "Unbreaking",
+                    "Mending"
+                ]
+            }
+        ],
+
+        tools: [
+            {
+                name: "Netherite Pickaxe",
+                enchantments: [
+                    "Efficiency",
+                    "Fortune",
+                    "Unbreaking",
+                    "Mending"
+                ]
+            },
+
+            {
+                name: "Netherite Axe",
+                enchantments: [
+                    "Efficiency",
+                    "Sharpness",
+                    "Unbreaking",
+                    "Mending"
+                ]
+            },
+
+            {
+                name: "Netherite Shovel",
+                enchantments: [
+                    "Efficiency",
+                    "Unbreaking",
+                    "Mending"
+                ]
+            },
+
+            {
+                name: "Netherite Hoe",
+                enchantments: [
+                    "Efficiency",
+                    "Unbreaking",
+                    "Mending"
+                ]
+            }
         ]
-      },
+    },
 
-      {
-        name: "Netherite Chestplate",
-        icon: "🛡",
-        trim: "SENTRY ARMOR TRIM",
-        enchantments: [
-          "Protection IV",
-          "Unbreaking III",
-          "Mending",
-          "Thorns III"
-        ]
-      },
+    akzzz: {
+        name: "AKZZZ",
+        title: "THE LEGENDARY BUILDER",
 
-      {
-        name: "Netherite Leggings",
-        icon: "⚔",
-        trim: "VEX ARMOR TRIM",
-        enchantments: [
-          "Protection IV",
-          "Unbreaking III",
-          "Mending",
-          "Swift Sneak III"
-        ]
-      },
+        roles: [
+            "Legendary Builder",
+            "Master Architect",
+            "World Creator"
+        ],
 
-      {
-        name: "Netherite Boots",
-        icon: "🥾",
-        trim: "RIB ARMOR TRIM",
-        enchantments: [
-          "Protection IV",
-          "Unbreaking III",
-          "Mending",
-          "Feather Falling IV",
-          "Depth Strider III"
-        ]
-      }
+        description:
+            "A legendary builder capable of transforming an empty Minecraft world into monumental structures. His greatest creation is the AKZ Academy.",
 
-    ],
+        quote:
+            "Built by AKZZZ. Remembered by the world.",
 
-    weapons: [
-
-      {
-        name: "Mace",
-        icon: "🔨",
-        enchantments: [
-          "Density V",
-          "Wind Burst III",
-          "Unbreaking III",
-          "Mending"
-        ]
-      },
-
-      {
-        name: "Netherite Sword",
-        icon: "🗡",
-        enchantments: [
-          "Sharpness IV",
-          "Unbreaking III",
-          "Mending",
-          "Looting III",
-          "Sweeping Edge III",
-          "Fire Aspect II"
-        ]
-      },
-
-      {
-        name: "Netherite Axe",
-        icon: "🪓",
-        enchantments: [
-          "Sharpness V",
-          "Efficiency V",
-          "Unbreaking III",
-          "Mending"
-        ]
-      }
-
-    ],
-
-    tools: [
-
-      {
-        name: "Netherite Pickaxe",
-        icon: "⛏",
-        enchantments: [
-          "Efficiency V",
-          "Fortune III",
-          "Unbreaking III",
-          "Mending"
-        ]
-      },
-
-      {
-        name: "Netherite Axe",
-        icon: "🪓",
-        enchantments: [
-          "Efficiency V",
-          "Unbreaking III",
-          "Mending"
-        ]
-      },
-
-      {
-        name: "Netherite Shovel",
-        icon: "🔧",
-        enchantments: [
-          "Efficiency V",
-          "Silk Touch",
-          "Unbreaking III",
-          "Mending"
-        ]
-      },
-
-      {
-        name: "Netherite Hoe",
-        icon: "⚒",
-        enchantments: [
-          "Efficiency V",
-          "Unbreaking III",
-          "Mending"
-        ]
-      }
-
-    ]
-
-  },
-
-
-  akzzz: {
-
-    name: "AKZZZ",
-
-    role: "THE CREATOR",
-
-    title: "LEGENDARY BUILDER",
-
-    tags: [
-      "MASTER ARCHITECT",
-      "WORLD BUILDER"
-    ],
-
-    description:
-      "AKZZZ is the legendary builder of AKZ-SMP. His greatest creation is the AKZ Academy, a monumental structure that stands as one of the most important landmarks in the world.",
-
-  }
-
+        creation: "THE AKZ ACADEMY"
+    }
 };
 
 
+/* =========================================================
+   PAGE LOADER
+   ========================================================= */
+
 /*
-===========================================================
-PAGE LOADER
-===========================================================
+   IMPORTANT:
+   This loader is intentionally failsafe.
+
+   Even if another JavaScript feature has an error,
+   the loading screen will still disappear.
 */
 
-window.addEventListener("load", () => {
+function hideLoader() {
 
-  setTimeout(() => {
+    const loader = document.getElementById("loader");
 
-    document.getElementById("loader")
-      .classList.add("hide");
+    if (!loader) return;
 
-  }, 1300);
+    loader.classList.add("hide");
+
+    // Completely remove it after the animation
+    setTimeout(() => {
+        loader.style.display = "none";
+    }, 800);
+}
+
+
+/* Start loader timer immediately */
+setTimeout(hideLoader, 1500);
+
+
+/* Also remove loader when DOM is ready */
+document.addEventListener("DOMContentLoaded", () => {
+
+    setTimeout(hideLoader, 1500);
 
 });
 
 
-/*
-===========================================================
-PARTICLES
-===========================================================
-*/
+/* Absolute failsafe:
+   NEVER allow the loader to remain forever. */
+setTimeout(() => {
 
-const particleContainer =
-  document.getElementById("particles");
+    const loader = document.getElementById("loader");
 
-for (let i = 0; i < 40; i++) {
-
-  const particle =
-    document.createElement("span");
-
-  particle.style.position = "fixed";
-  particle.style.width = `${Math.random() * 3 + 1}px`;
-  particle.style.height = particle.style.width;
-  particle.style.background = "#ffffff";
-  particle.style.opacity = Math.random() * .25;
-  particle.style.borderRadius = "50%";
-  particle.style.left = `${Math.random() * 100}%`;
-  particle.style.top = `${Math.random() * 100}%`;
-  particle.style.pointerEvents = "none";
-  particle.style.zIndex = "1";
-
-  particle.animate(
-
-    [
-      {
-        transform: "translateY(0)"
-      },
-      {
-        transform:
-          `translateY(-${Math.random() * 150 + 50}px)`
-      }
-    ],
-
-    {
-      duration: Math.random() * 6000 + 4000,
-      iterations: Infinity,
-      direction: "alternate"
+    if (loader) {
+        loader.remove();
     }
 
-  );
-
-  particleContainer.appendChild(particle);
-
-}
+}, 5000);
 
 
-/*
-===========================================================
-ARMORY GENERATOR
-===========================================================
-*/
+/* =========================================================
+   DOM READY
+   ========================================================= */
 
-function createItem(item) {
+document.addEventListener("DOMContentLoaded", () => {
 
-  const card =
-    document.createElement("div");
+    /* =====================================================
+       MOBILE MENU
+       ===================================================== */
 
-  card.className = "item-card";
+    const menuButton = document.querySelector(".menu-toggle");
+    const navigation = document.querySelector(".nav-links");
 
-  card.innerHTML = `
+    if (menuButton && navigation) {
 
-    <div class="item-icon">
-      ${item.icon}
-    </div>
+        menuButton.addEventListener("click", () => {
 
-    <div class="item-name">
-      ${item.name}
-    </div>
+            navigation.classList.toggle("active");
+            menuButton.classList.toggle("active");
 
-    ${
-      item.trim
-      ?
-      `<div class="trim">${item.trim}</div>`
-      :
-      ""
+        });
+
     }
 
-    <div class="enchants">
 
-      ${
-        item.enchantments
-        .map(enchant => `✦ ${enchant}`)
-        .join("<br>")
-      }
+    /* =====================================================
+       CLOSE MOBILE MENU WHEN LINK IS CLICKED
+       ===================================================== */
 
-    </div>
+    if (navigation) {
 
-  `;
+        const navLinks = navigation.querySelectorAll("a");
 
-  return card;
+        navLinks.forEach(link => {
 
-}
+            link.addEventListener("click", () => {
 
+                navigation.classList.remove("active");
 
-function loadArmory() {
+                if (menuButton) {
+                    menuButton.classList.remove("active");
+                }
 
-  const armor =
-    document.getElementById("armorItems");
+            });
 
-  const weapons =
-    document.getElementById("weaponItems");
+        });
 
-  const tools =
-    document.getElementById("toolItems");
-
-  AKZ_DATA.relvo.armor
-    .forEach(item => {
-      armor.appendChild(createItem(item));
-    });
-
-  AKZ_DATA.relvo.weapons
-    .forEach(item => {
-      weapons.appendChild(createItem(item));
-    });
-
-  AKZ_DATA.relvo.tools
-    .forEach(item => {
-      tools.appendChild(createItem(item));
-    });
-
-}
-
-loadArmory();
+    }
 
 
-/*
-===========================================================
-CHARACTER MODAL
-===========================================================
-*/
+    /* =====================================================
+       SMOOTH SCROLL
+       ===================================================== */
 
-const modal =
-  document.getElementById("characterModal");
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-const modalRole =
-  document.getElementById("modalRole");
+        link.addEventListener("click", function(event) {
 
-const modalName =
-  document.getElementById("modalName");
+            const targetID = this.getAttribute("href");
 
-const modalTitle =
-  document.getElementById("modalTitle");
+            if (!targetID || targetID === "#") return;
 
-const modalDescription =
-  document.getElementById("modalDescription");
+            const target = document.querySelector(targetID);
 
-const modalTags =
-  document.getElementById("modalTags");
+            if (!target) return;
 
+            event.preventDefault();
 
-function openCharacter(character) {
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
 
-  const data =
-    AKZ_DATA[character];
-
-  modalRole.textContent =
-    data.role;
-
-  modalName.textContent =
-    data.name;
-
-  modalTitle.textContent =
-    data.title;
-
-  modalDescription.textContent =
-    data.description;
-
-  modalTags.innerHTML = "";
-
-  data.tags.forEach(tag => {
-
-    const span =
-      document.createElement("span");
-
-    span.textContent = tag;
-
-    modalTags.appendChild(span);
-
-  });
-
-  modal.classList.add("active");
-
-}
-
-
-document
-  .querySelectorAll(".legend-card")
-  .forEach(card => {
-
-    card.addEventListener("click", () => {
-
-      openCharacter(
-        card.dataset.character
-      );
+        });
 
     });
 
-  });
+
+    /* =====================================================
+       SCROLL REVEAL
+       ===================================================== */
+
+    const revealElements = document.querySelectorAll(
+        ".reveal, .section-title, .character-card, .armor-card, .weapon-card, .tool-card, .story-item"
+    );
 
 
-document
-  .getElementById("closeModal")
-  .addEventListener("click", () => {
+    if ("IntersectionObserver" in window) {
 
-    modal.classList.remove("active");
+        const revealObserver = new IntersectionObserver(
+            entries => {
 
-  });
+                entries.forEach(entry => {
 
+                    if (entry.isIntersecting) {
 
-modal.addEventListener("click", e => {
+                        entry.target.classList.add("visible");
 
-  if (e.target === modal) {
+                        revealObserver.unobserve(entry.target);
 
-    modal.classList.remove("active");
+                    }
 
-  }
+                });
 
-});
-
-
-/*
-===========================================================
-MACE CINEMATIC
-===========================================================
-*/
-
-const maceButton =
-  document.getElementById("maceButton");
-
-const impactFlash =
-  document.getElementById("impactFlash");
-
-const shockwave =
-  document.getElementById("shockwave");
-
-
-maceButton.addEventListener("click", () => {
-
-  document.body.classList.remove("impact");
-
-  void document.body.offsetWidth;
-
-  document.body.classList.add("impact");
-
-  impactFlash.classList.remove("active");
-
-  shockwave.classList.remove("active");
-
-  void impactFlash.offsetWidth;
-
-  impactFlash.classList.add("active");
-
-  shockwave.classList.add("active");
-
-  maceButton.textContent =
-    "RELVO — THE MACE MASTER";
-
-  setTimeout(() => {
-
-    maceButton.textContent =
-      "EXPERIENCE THE IMPACT";
-
-  }, 2500);
-
-});
-
-
-/*
-===========================================================
-SCROLL REVEAL
-===========================================================
-*/
-
-const revealElements =
-  document.querySelectorAll(
-    ".section-heading, .legend-card, .timeline-item, .inventory, .academy-text"
-  );
-
-
-const observer =
-  new IntersectionObserver(
-
-    entries => {
-
-      entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-
-          entry.target.animate(
-
-            [
-              {
-                opacity: 0,
-                transform: "translateY(35px)"
-              },
-
-              {
-                opacity: 1,
-                transform: "translateY(0)"
-              }
-
-            ],
-
+            },
             {
-              duration: 900,
-              easing: "cubic-bezier(.2,.8,.2,1)",
-              fill: "forwards"
+                threshold: 0.12
+            }
+        );
+
+
+        revealElements.forEach(element => {
+
+            element.classList.add("reveal");
+
+            revealObserver.observe(element);
+
+        });
+
+    } else {
+
+        revealElements.forEach(element => {
+            element.classList.add("visible");
+        });
+
+    }
+
+
+    /* =====================================================
+       CHARACTER CARDS
+       ===================================================== */
+
+    const characterCards = document.querySelectorAll(
+        ".character-card"
+    );
+
+    const characterModal = document.getElementById(
+        "character-modal"
+    );
+
+    const modalTitle = document.getElementById(
+        "modal-title"
+    );
+
+    const modalContent = document.getElementById(
+        "modal-content"
+    );
+
+    const modalClose = document.querySelector(
+        ".modal-close"
+    );
+
+
+    function openCharacter(character) {
+
+        if (!characterModal) return;
+
+        const data = AKZ_DATA[character];
+
+        if (!data) return;
+
+
+        if (modalTitle) {
+            modalTitle.textContent =
+                `${data.name} — ${data.title}`;
+        }
+
+
+        if (modalContent) {
+
+            let html = `
+                <p class="modal-description">
+                    ${data.description}
+                </p>
+
+                <div class="modal-roles">
+            `;
+
+
+            data.roles.forEach(role => {
+
+                html += `
+                    <span class="role-tag">
+                        ${role}
+                    </span>
+                `;
+
+            });
+
+
+            html += `</div>`;
+
+
+            if (data.quote) {
+
+                html += `
+                    <blockquote>
+                        "${data.quote}"
+                    </blockquote>
+                `;
+
             }
 
-          );
 
-          observer.unobserve(entry.target);
+            if (character === "akzzz") {
+
+                html += `
+                    <div class="modal-feature">
+                        <span>GREATEST CREATION</span>
+                        <strong>
+                            ${data.creation}
+                        </strong>
+                    </div>
+                `;
+
+            }
+
+
+            if (character === "relvo") {
+
+                html += `
+                    <div class="modal-feature">
+                        <span>SIGNATURE WEAPON</span>
+                        <strong>
+                            NETHERITE MACE
+                        </strong>
+                    </div>
+                `;
+
+            }
+
+
+            modalContent.innerHTML = html;
 
         }
 
-      });
 
-    },
+        characterModal.classList.add("active");
 
-    {
-      threshold: .12
+        document.body.classList.add("modal-open");
+
     }
 
-  );
+
+    characterCards.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            const character =
+                card.dataset.character ||
+                card.getAttribute("data-character");
+
+            if (character) {
+                openCharacter(character);
+            }
+
+        });
+
+    });
 
 
-revealElements.forEach(
-  element => observer.observe(element)
-);
+    /* =====================================================
+       CLOSE MODAL
+       ===================================================== */
+
+    function closeModal() {
+
+        if (!characterModal) return;
+
+        characterModal.classList.remove("active");
+
+        document.body.classList.remove("modal-open");
+
+    }
 
 
-/*
-===========================================================
-MOBILE MENU
-===========================================================
-*/
+    if (modalClose) {
 
-const menuBtn =
-  document.getElementById("menuBtn");
+        modalClose.addEventListener(
+            "click",
+            closeModal
+        );
 
-menuBtn.addEventListener("click", () => {
+    }
 
-  const links =
-    document.querySelector(".nav-links");
 
-  const open =
-    links.style.display === "flex";
+    if (characterModal) {
 
-  links.style.display =
-    open ? "none" : "flex";
+        characterModal.addEventListener(
+            "click",
+            event => {
 
-  if (!open) {
+                if (
+                    event.target === characterModal
+                ) {
+                    closeModal();
+                }
 
-    links.style.position = "absolute";
-    links.style.top = "85px";
-    links.style.left = "0";
-    links.style.right = "0";
-    links.style.background = "#050505";
-    links.style.padding = "25px";
-    links.style.flexDirection = "column";
+            }
+        );
 
-  }
+    }
+
+
+    /* ESC KEY */
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (event.key === "Escape") {
+                closeModal();
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       MACE IMPACT EFFECT
+       ===================================================== */
+
+    const maceSection = document.querySelector(
+        ".mace-section"
+    );
+
+    const maceButton = document.querySelector(
+        ".mace-trigger"
+    );
+
+
+    function maceImpact() {
+
+        document.body.classList.add(
+            "mace-impact"
+        );
+
+
+        /* Screen flash */
+
+        const flash =
+            document.createElement("div");
+
+        flash.className =
+            "impact-flash";
+
+        document.body.appendChild(flash);
+
+
+        /* Shockwave */
+
+        const shockwave =
+            document.createElement("div");
+
+        shockwave.className =
+            "shockwave";
+
+        document.body.appendChild(shockwave);
+
+
+        /* Camera shake */
+
+        document.body.classList.add(
+            "screen-shake"
+        );
+
+
+        setTimeout(() => {
+
+            document.body.classList.remove(
+                "mace-impact"
+            );
+
+            document.body.classList.remove(
+                "screen-shake"
+            );
+
+        }, 500);
+
+
+        setTimeout(() => {
+
+            flash.remove();
+
+        }, 600);
+
+
+        setTimeout(() => {
+
+            shockwave.remove();
+
+        }, 1000);
+
+    }
+
+
+    if (maceButton) {
+
+        maceButton.addEventListener(
+            "click",
+            maceImpact
+        );
+
+    }
+
+
+    /* Click mace section */
+
+    if (maceSection) {
+
+        maceSection.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target.closest(
+                        ".mace-trigger"
+                    )
+                ) return;
+
+                maceImpact();
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       PARTICLE SYSTEM
+       ===================================================== */
+
+    const particleContainer =
+        document.querySelector(
+            ".particles"
+        );
+
+
+    if (particleContainer) {
+
+        for (let i = 0; i < 35; i++) {
+
+            const particle =
+                document.createElement("span");
+
+            particle.className =
+                "particle";
+
+            particle.style.left =
+                Math.random() * 100 + "%";
+
+            particle.style.animationDelay =
+                Math.random() * 8 + "s";
+
+            particle.style.animationDuration =
+                5 + Math.random() * 8 + "s";
+
+            particle.style.opacity =
+                0.2 + Math.random() * 0.6;
+
+            particleContainer.appendChild(
+                particle
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       PARALLAX EFFECT
+       ===================================================== */
+
+    const parallaxElements =
+        document.querySelectorAll(
+            "[data-parallax]"
+        );
+
+
+    if (parallaxElements.length) {
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                const scrollY =
+                    window.scrollY;
+
+                parallaxElements.forEach(
+                    element => {
+
+                        const speed =
+                            parseFloat(
+                                element.dataset.parallax
+                            ) || 0.2;
+
+                        element.style.transform =
+                            `translateY(${scrollY * speed}px)`;
+
+                    }
+                );
+
+            },
+            { passive: true }
+        );
+
+    }
+
+
+    /* =====================================================
+       NAVBAR SCROLL EFFECT
+       ===================================================== */
+
+    const header =
+        document.querySelector("header");
+
+
+    if (header) {
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (window.scrollY > 60) {
+
+                    header.classList.add(
+                        "scrolled"
+                    );
+
+                } else {
+
+                    header.classList.remove(
+                        "scrolled"
+                    );
+
+                }
+
+            },
+            { passive: true }
+        );
+
+    }
+
+
+    /* =====================================================
+       ACTIVE NAVIGATION LINK
+       ===================================================== */
+
+    const sections =
+        document.querySelectorAll(
+            "section[id]"
+        );
+
+    const links =
+        document.querySelectorAll(
+            ".nav-links a"
+        );
+
+
+    if (
+        sections.length &&
+        links.length &&
+        "IntersectionObserver" in window
+    ) {
+
+        const navObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            const id =
+                                entry.target.id;
+
+                            links.forEach(link => {
+
+                                link.classList.remove(
+                                    "active"
+                                );
+
+
+                                if (
+                                    link.getAttribute(
+                                        "href"
+                                    ) === `#${id}`
+                                ) {
+
+                                    link.classList.add(
+                                        "active"
+                                    );
+
+                                }
+
+                            });
+
+                        }
+
+                    });
+
+                },
+                {
+                    rootMargin:
+                        "-25% 0px -65% 0px"
+                }
+            );
+
+
+        sections.forEach(section => {
+
+            navObserver.observe(
+                section
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       BUTTON RIPPLE EFFECT
+       ===================================================== */
+
+    document
+        .querySelectorAll("button, .btn")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                event => {
+
+                    const rect =
+                        button.getBoundingClientRect();
+
+                    const ripple =
+                        document.createElement(
+                            "span"
+                        );
+
+                    ripple.className =
+                        "ripple";
+
+                    ripple.style.left =
+                        `${event.clientX - rect.left}px`;
+
+                    ripple.style.top =
+                        `${event.clientY - rect.top}px`;
+
+                    button.appendChild(
+                        ripple
+                    );
+
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       ACADEMY REVEAL
+       ===================================================== */
+
+    const academy =
+        document.querySelector(
+            ".academy-reveal"
+        );
+
+
+    if (academy) {
+
+        const academyObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (
+                            entry.isIntersecting
+                        ) {
+
+                            academy.classList.add(
+                                "revealed"
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.25
+                }
+            );
+
+
+        academyObserver.observe(
+            academy
+        );
+
+    }
+
+
+    /* =====================================================
+       EQUIPMENT ANIMATION
+       ===================================================== */
+
+    const equipmentCards =
+        document.querySelectorAll(
+            ".armor-card, .weapon-card, .tool-card"
+        );
+
+
+    equipmentCards.forEach(
+        (card, index) => {
+
+            card.style.transitionDelay =
+                `${index * 60}ms`;
+
+        }
+    );
+
+
+    /* =====================================================
+       PREVENT BROKEN IMAGE ICONS
+       ===================================================== */
+
+    document
+        .querySelectorAll("img")
+        .forEach(img => {
+
+            img.addEventListener(
+                "error",
+                () => {
+
+                    img.style.display =
+                        "none";
+
+                }
+            );
+
+        });
+
+
+    /* =====================================================
+       PAGE READY
+       ===================================================== */
+
+    document.body.classList.add(
+        "page-ready"
+    );
 
 });
 
 
+/* =========================================================
+   GLOBAL ERROR FAILSAFE
+   ========================================================= */
+
 /*
-===========================================================
-SMOOTH NAVIGATION
-===========================================================
+   If another script error happens, don't let it
+   trap the visitor behind the loading screen.
 */
 
-document
-  .querySelectorAll('a[href^="#"]')
-  .forEach(link => {
+window.addEventListener(
+    "error",
+    () => {
 
-    link.addEventListener("click", e => {
+        const loader =
+            document.getElementById(
+                "loader"
+            );
 
-      const target =
-        document.querySelector(
-          link.getAttribute("href")
-        );
+        if (loader) {
 
-      if (!target) return;
+            loader.classList.add(
+                "hide"
+            );
 
-      e.preventDefault();
+            setTimeout(() => {
 
-      target.scrollIntoView({
-        behavior: "smooth"
-      });
+                loader.style.display =
+                    "none";
 
-    });
+            }, 500);
 
-  });
+        }
+
+    }
+);
