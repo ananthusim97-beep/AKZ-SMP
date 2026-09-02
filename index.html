@@ -1,0 +1,994 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>10C SMP</title>
+
+    <meta name="description" content="Welcome to the 10C Minecraft SMP. Every world has a story.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(12px);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            opacity: 0.5;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.5;
+        }
+
+        .menu {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.35),
+                    rgba(0,0,0,0.9)
+                ),
+                url("https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=2000&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 30px;
+            animation: heroIn 1.5s ease;
+        }
+
+        .small-title {
+            text-transform: uppercase;
+            letter-spacing: 7px;
+            font-size: 13px;
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(70px, 14vw, 180px);
+            line-height: 0.8;
+            font-weight: 900;
+            letter-spacing: -8px;
+        }
+
+        .hero h1 span {
+            opacity: 0.35;
+        }
+
+        .hero p {
+            margin: 35px auto;
+            max-width: 600px;
+            color: #ccc;
+            line-height: 1.7;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 28px;
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn:hover {
+            background: white;
+            color: black;
+            transform: translateY(-4px);
+        }
+
+        .status {
+            margin-top: 45px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            opacity: 0.6;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #66ff88;
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 12px #66ff88;
+        }
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            padding: 120px 8%;
+        }
+
+        .section-label {
+            font-size: 12px;
+            letter-spacing: 5px;
+            opacity: 0.4;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: clamp(40px, 7vw, 90px);
+            line-height: 0.95;
+            margin-bottom: 50px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            background: #0b0b0b;
+        }
+
+        .about-text {
+            color: #aaa;
+            font-size: 18px;
+            line-height: 1.9;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .stat {
+            padding: 35px;
+            border: 1px solid #222;
+            background: #0e0e0e;
+        }
+
+        .stat h3 {
+            font-size: 40px;
+            margin-bottom: 8px;
+        }
+
+        .stat p {
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* =========================
+           WORLD
+        ========================= */
+
+        .world {
+            background: #050505;
+        }
+
+        .world-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .world-card {
+            border: 1px solid #222;
+            padding: 35px;
+            min-height: 180px;
+            transition: 0.4s;
+        }
+
+        .world-card:hover {
+            transform: translateY(-8px);
+            background: #111;
+        }
+
+        .world-card h3 {
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .world-card p {
+            font-size: 20px;
+        }
+
+        /* =========================
+           PLAYERS
+        ========================= */
+
+        .players {
+            background: #0a0a0a;
+        }
+
+        .player-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .player {
+            min-height: 300px;
+            border: 1px solid #222;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            background-size: cover;
+            background-position: center;
+
+            transition: 0.4s;
+        }
+
+        .player:hover {
+            transform: scale(1.02);
+        }
+
+        .player h3 {
+            font-size: 25px;
+        }
+
+        .player p {
+            color: #aaa;
+            margin-top: 5px;
+            font-size: 13px;
+        }
+
+        /* =========================
+           LORE
+        ========================= */
+
+        .lore {
+            background: #050505;
+        }
+
+        .timeline {
+            max-width: 900px;
+        }
+
+        .event {
+            border-left: 1px solid #333;
+            padding: 0 0 50px 40px;
+            position: relative;
+        }
+
+        .event::before {
+            content: "";
+            position: absolute;
+            left: -5px;
+            top: 5px;
+            width: 9px;
+            height: 9px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .event span {
+            font-size: 11px;
+            letter-spacing: 3px;
+            opacity: 0.4;
+        }
+
+        .event h3 {
+            font-size: 30px;
+            margin: 12px 0;
+        }
+
+        .event p {
+            color: #777;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           GALLERY
+        ========================= */
+
+        .gallery {
+            background: #0a0a0a;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .gallery img:hover {
+            opacity: 0.7;
+            transform: scale(0.98);
+        }
+
+        /* =========================
+           JOIN
+        ========================= */
+
+        .join {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.6),
+                    rgba(0,0,0,0.9)
+                ),
+                url("https://images.unsplash.com/photo-1607513746994-51f730a44832?auto=format&fit=crop&w=2000&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .join h2 {
+            font-size: clamp(50px, 9vw, 120px);
+            line-height: 0.85;
+        }
+
+        .ip {
+            margin: 35px 0;
+            font-family: monospace;
+            font-size: 18px;
+            color: #aaa;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 50px 8%;
+            background: #030303;
+            border-top: 1px solid #151515;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        footer p {
+            color: #555;
+            font-size: 12px;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes heroIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 1s;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 18px 6%;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(0,0,0,0.95);
+                padding: 30px;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            .hero h1 {
+                letter-spacing: -4px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .world-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .player-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery img {
+                height: 250px;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .world-grid,
+            .player-grid,
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 75px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav>
+
+        <!-- CHANGE SMP NAME HERE -->
+        <div class="logo">10C<span> SMP</span></div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#world">WORLD</a></li>
+            <li><a href="#players">PLAYERS</a></li>
+            <li><a href="#lore">LORE</a></li>
+            <li><a href="#gallery">GALLERY</a></li>
+            <li><a href="#join">JOIN</a></li>
+        </ul>
+
+        <div class="menu" onclick="toggleMenu()">☰</div>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Minecraft Survival Multiplayer
+            </div>
+
+            <!-- CHANGE SMP NAME HERE -->
+            <h1>10C<span>SMP</span></h1>
+
+            <p>
+                Every world has a story.
+                Ours is still being written.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#join" class="btn">
+                    Enter The World
+                </a>
+
+                <!-- CHANGE THIS TO YOUR YOUTUBE VIDEO -->
+                <a href="#" class="btn">
+                    Watch Trailer
+                </a>
+
+            </div>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                SERVER STATUS: ONLINE
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section class="about reveal" id="about">
+
+        <div>
+
+            <div class="section-label">
+                01 — About
+            </div>
+
+            <h2 class="section-title">
+                MORE THAN<br>
+                A SERVER.
+            </h2>
+
+        </div>
+
+        <div>
+
+            <p class="about-text">
+                Welcome to 10C SMP.
+
+                This is more than a Minecraft world.
+                It's a place where players build kingdoms,
+                make alliances, start rivalries and create
+                stories that become memories.
+
+                <br><br>
+
+                Replace this text with the actual story
+                of your SMP.
+            </p>
+
+            <br><br>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <h3>01</h3>
+                    <p>SEASON</p>
+                </div>
+
+                <div class="stat">
+                    <h3>∞</h3>
+                    <p>MEMORIES</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         WORLD
+    ========================= -->
+
+    <section class="world reveal" id="world">
+
+        <div class="section-label">
+            02 — The World
+        </div>
+
+        <h2 class="section-title">
+            ENTER<br>
+            THE WORLD.
+        </h2>
+
+        <div class="world-grid">
+
+            <div class="world-card">
+                <h3>VERSION</h3>
+                <p>1.21.X</p>
+            </div>
+
+            <div class="world-card">
+                <h3>SEASON</h3>
+                <p>Season 1</p>
+            </div>
+
+            <div class="world-card">
+                <h3>MODE</h3>
+                <p>Survival</p>
+            </div>
+
+            <div class="world-card">
+                <h3>DIFFICULTY</h3>
+                <p>Hard</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PLAYERS
+    ========================= -->
+
+    <section class="players reveal" id="players">
+
+        <div class="section-label">
+            03 — Players
+        </div>
+
+        <h2 class="section-title">
+            THE PEOPLE<br>
+            BEHIND THE STORY.
+        </h2>
+
+        <div class="player-grid">
+
+            <!-- Replace images and names -->
+
+            <div class="player"
+                 style="background-image: linear-gradient(transparent,#000),url('https://mc-heads.net/body/Player1/180');">
+
+                <h3>Player 1</h3>
+                <p>THE SURVIVOR</p>
+
+            </div>
+
+            <div class="player"
+                 style="background-image: linear-gradient(transparent,#000),url('https://mc-heads.net/body/Player2/180');">
+
+                <h3>Player 2</h3>
+                <p>THE BUILDER</p>
+
+            </div>
+
+            <div class="player"
+                 style="background-image: linear-gradient(transparent,#000),url('https://mc-heads.net/body/Player3/180');">
+
+                <h3>Player 3</h3>
+                <p>THE UNKNOWN</p>
+
+            </div>
+
+            <div class="player"
+                 style="background-image: linear-gradient(transparent,#000),url('https://mc-heads.net/body/Player4/180');">
+
+                <h3>Player 4</h3>
+                <p>THE WARRIOR</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         LORE
+    ========================= -->
+
+    <section class="lore reveal" id="lore">
+
+        <div class="section-label">
+            04 — Lore
+        </div>
+
+        <h2 class="section-title">
+            THE STORY<br>
+            SO FAR.
+        </h2>
+
+        <div class="timeline">
+
+            <div class="event">
+
+                <span>DAY 001</span>
+
+                <h3>The Beginning</h3>
+
+                <p>
+                    The world was created.
+                    Nobody knew what was coming next.
+                </p>
+
+            </div>
+
+            <div class="event">
+
+                <span>DAY 014</span>
+
+                <h3>The First Alliance</h3>
+
+                <p>
+                    Players joined forces and
+                    created something bigger.
+                </p>
+
+            </div>
+
+            <div class="event">
+
+                <span>DAY ???</span>
+
+                <h3>Something Changed</h3>
+
+                <p>
+                    Add your SMP's biggest event here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GALLERY
+    ========================= -->
+
+    <section class="gallery reveal" id="gallery">
+
+        <div class="section-label">
+            05 — Gallery
+        </div>
+
+        <h2 class="section-title">
+            MOMENTS<br>
+            WE KEEP.
+        </h2>
+
+        <div class="gallery-grid">
+
+            <!-- Replace these with your SMP screenshots -->
+
+            <img src="https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&w=1200&q=80">
+
+            <img src="https://images.unsplash.com/photo-1614294149010-950b698f72c0?auto=format&fit=crop&w=1200&q=80">
+
+            <img src="https://images.unsplash.com/photo-1607513746994-51f730a44832?auto=format&fit=crop&w=1200&q=80">
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         JOIN
+    ========================= -->
+
+    <section class="join reveal" id="join">
+
+        <div>
+
+            <div class="section-label">
+                06 — Join
+            </div>
+
+            <h2>
+                READY<br>
+                TO PLAY?
+            </h2>
+
+            <!-- CHANGE SERVER IP -->
+            <div class="ip" id="serverIP">
+                play.yoursmp.com
+            </div>
+
+            <div class="buttons">
+
+                <button class="btn" onclick="copyIP()">
+                    Copy IP
+                </button>
+
+                <!-- CHANGE DISCORD LINK -->
+                <a href="#" class="btn">
+                    Discord
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 10C SMP
+        </p>
+
+        <p>
+            Every world has a story.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* MOBILE MENU */
+
+        function toggleMenu() {
+
+            document
+                .getElementById("navLinks")
+                .classList
+                .toggle("active");
+
+        }
+
+
+        /* COPY SERVER IP */
+
+        function copyIP() {
+
+            const ip =
+                document
+                .getElementById("serverIP")
+                .innerText;
+
+            navigator.clipboard.writeText(ip);
+
+            alert("Server IP copied!");
+
+        }
+
+
+        /* SCROLL REVEAL */
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry
+                                .target
+                                .classList
+                                .add("active");
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+
+        document
+            .querySelectorAll(".reveal")
+            .forEach(element => {
+
+                observer.observe(element);
+
+            });
+
+    </script>
+
+</body>
+</html>
+```
